@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>BonsAI d.o.o.</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link rel="shortcut icon" type="image/png" href="img/favicon-16x16.png"/>
+  <link rel="stylesheet" media="screen and (min-width: 501px)" type="text/css" href="css/style.css">
+  <link rel="stylesheet" media="screen and (max-width: 500px)" type="text/css" href="css/style_mobile.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="js/scripts.js"></script>
+</head>
+
+<body onload="bodyLoaded()">
+  <!-- Button za povratak na vrh stranice -->
+  <!-- <button onclick="topFunction()" id="backtothetop">Top</button> -->
+
+  <div class="main_container" id="home">
+    <div class="Rectangle-1 header_curved">
+
+      <!-- LOGO i nav bar -->
+      <div class="header_div">
+        <img src="img/bonsai-logo.png" srcset="img/bonsai-logo@2x.png 2x, img/bonsai-logo@3x.png 3x" class="bonsai-logo">
+        <ul>
+          <li><a href="#home" class="HOME">HOME</a></li> &nbsp;&nbsp;&nbsp;
+          <li><a href="#products" class="PRODUCTS">PRODUCTS</a></li> &nbsp;&nbsp;&nbsp;
+          <li><a href="#contact" class="CONTACT">CONTACT</a></li> &nbsp;&nbsp;&nbsp;
+          <!--<li><a href="" class="BLOG">BLOG</a></li>-->
+        </ul>
+      </div>
+
+      <!-- Box sa tekstom -->
+      <div class="tekst_div">
+        <p class="MAKE-USE-OF-AI-IN-YO">MAKE USE OF AI IN YOUR BUSINESS</p><br>
+        <p class="Let-people-do-what-t">Let people do what they do best, <br class="remove_br">leave the boring and repetitive work to AI</p>        
+      </div>
+
+      <!-- Horizontalna crta na stranici -->
+      <div class="Rectangle-25"></div>
+
+      <!-- Chat primjer -->
+      <div class="chat_div2">
+        <div class="robot_response" id="msg_1">
+          <div class="robot_icon"> <img src="img/chat-bot-avatar.png"> </div>
+          <div class="robot_msg"> <p class="robot_tekst">Hi, how can I help you?</p> </div>
+        </div>
+
+        <div class="customer_response" id="msg_2">
+          <div class="customer_icon"> <img src="img/user-avatar.png"> </div>
+          <div class="customer_msg"> <p class="customer_tekst">Hi, I have a horrible toothache.
+Can you please book me an appointment with the dentist?</p> </div>
+        </div>
+
+        <div class="robot_response" id="msg_3">
+          <div class="robot_icon"> <img src="img/chat-bot-avatar.png"> </div>
+          <div class="robot_msg"><p class="robot_tekst">Oh, I'm sorry to hear that. How about tomorrow at 4PM?</p> </div>
+        </div>
+
+        <div class="customer_response" id="msg_4">
+          <div class="customer_icon"> <img src="img/user-avatar.png"> </div>
+          <div class="customer_msg"> <p class="customer_tekst">YES! Thank you!</p> </div>
+        </div>
+
+        <div class="robot_response" id="msg_5">
+          <div class="robot_icon"> <img src="img/chat-bot-avatar.png"> </div>
+          <div class="robot_msg"><p class="robot_tekst">Your appointment is booked.
+Hope you feel well soon.</p> </div>
+        </div>
+      </div>
+
+      <!-- Strelica -->
+      <div class="arrow_div">
+        <img src="img/hero-arrow.png" srcset="img/hero-arrow@2x.png 2x, img/hero-arrow@3x.png 3x" class="hero-arrow">
+      </div>
+
+      <!-- Intelligent Chat Agents dio -->
+      <div class="chat_agents_div">
+        <p class="Intelligent-Chat-Age">Intelligent Chat Agents</p>
+        <p class="Increase-customer-se">Increase customer service efficiency by up to 53%</p>
+        <br>
+        <button class="btn1" onclick="findOutHow()">Find out how</button>
+      </div>
+      
+    </div>
+
+    <div class="Rectangle-19">
+
+      <!-- Testimonials TODO: Dodati dio sa sliderom -->
+      <div class="Testimonials_div">
+        <img src="img/slider-arrow-left.png" srcset="img/slider-arrow-left@2x.png 2x, img/slider-arrow-left@3x.png 3x" class="slider-arrow-left" onclick="slideItLeft()">
+
+        <img src="img/slider-arrow-right.png" srcset="img/slider-arrow-right@2x.png 2x, img/slider-arrow-right@3x.png 3x" class="slider-arrow-right" onclick="slideItRight()">
+
+        <div class="quote_div" id="quote_1">
+          <p class="Artificial-intellig" id="quote_id">"Artificial intelligence would be the ultimate version of Google. The ultimate search engine that would understand everything on the web."</p>
+          <div class="icon_and_name">
+            <img src="img/ultralarry.png" class="larry_img" id="image_id">&nbsp;&nbsp;
+            <span class="Larry-Page" id="name_id">Larry Page</span>
+          </div>
+        </div>
+        <div class="quote_div_hidden" id="quote_2">
+          <p class="Artificial-intellig" id="quote_id">“Chatbots will power 85% of all customer service interactions by the year 2020. “</p>
+          <div class="icon_and_name">
+            <img src="img/gartner_icon.png" class="larry_img" id="image_id">&nbsp;&nbsp;
+            <span class="Larry-Page" id="name_id">Gartner</span>
+          </div>
+        </div>
+        <div class="quote_div_hidden" id="quote_3">
+          <p class="Artificial-intellig" id="quote_id">“The average person will have more conversations with bots than with their spouse.”</p>
+          <div class="icon_and_name">
+            <img src="img/StarFishMint.png" class="larry_img" id="image_id">&nbsp;&nbsp;
+            <span class="Larry-Page" id="name_id">StarFishMint</span>
+          </div>
+        </div>
+
+        <div class="dot_container">
+          <div class="green_dot" id="dot_1"></div>
+          <div class="grey_dot" id="dot_2"></div>
+          <div class="grey_dot" id="dot_3"></div>
+        </div>
+      </div>
+
+      <!-- Our products -->
+      <p class="Our-Products" id="products">Our Products</p>
+      <div class="Products_container_div">
+
+        <div class="Single_product_div">
+          <div class="prod_img_div">
+            <img src="img/chat-bots-icon.png" srcset="img/chat-bots-icon@2x.png 2x, img/chat-bots-icon@3x.png 3x" class="product_image">
+          </div>
+          <p class="product_name">Chat Bots</p>
+          <p class="product_description">Create intelligent agents to adress your customer needs.</p>
+        </div>
+
+        <div class="Single_product_div">
+          <div class="prod_img_div">
+            <img src="img/verify-signatures-icon.png" srcset="img/verify-signatures-icon@2x.png 2x, img/verify-signatures-icon@3x.png 3x" class="product_image">
+          </div>
+          <p class="product_name">Verify Signatures</p>
+          <p class="product_description">Automate signature verification process in a company.</p>
+        </div>
+
+        <div class="Single_product_div">
+          <div class="prod_img_div">
+            <img src="img/identify-people-icon.png" srcset="img/identify-people-icon@2x.png 2x, img/identify-people-icon@3x.png 3x" class="product_image">
+          </div>
+          <p class="product_name">Identify People</p>
+          <p class="product_description">Use automated image recognition to identify people in photo and video.</p>
+          
+        </div>
+        <div class="Single_product_div">
+          <div class="prod_img_div">
+            <img src="img/licence-plates-icon.png" srcset="img/licence-plates-icon@2x.png 2x, img/licence-plates-icon@3x.png 3x" class="product_image">
+          </div>
+          <p class="product_name">Identify Licence Plates</p>
+          <p class="product_description">Read licence plates and integrate that information in your system.</p>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="Rectangle-1 footer_div_size" id="contact">
+      <p class="Looking-for-AI-solut">Looking for AI solutions or just want to chat about AI?</p>
+
+      <button class="btn2" onclick="popupform()">Contact Us</button>
+
+      <!-- POP UP FORMA -->
+      <div id="contactForm_div">
+        <p class="keep-in-touch">Keep in touch!</p>
+        <br>
+        <form id="pop_forma">
+          <input id="sender_name" class="form_tekst" placeholder="Name" type="text" required />
+          <input id="sender_email" class="form_tekst" placeholder="Email" type="email" required />
+          <input id="email_subject" class="form_tekst" placeholder="Subject" type="text" required />
+          <textarea id="email_message" class="form_tekst form_area"  placeholder="Message" required></textarea>
+          <input class="PopFormButtons" type="submit" value="Send" />
+          <input class="PopFormButtons" type="button" onclick="closePopForm()" value="Cancel" />
+        </form>
+      </div>
+      <!-- POP UP END -->
+
+      <!-- Horizontalna crta -->
+      <div class="Rectangle-25a"></div>
+
+      <!-- Div sa tekstom -->
+      <div class="footer_tekst_div">
+        <p class="BonsAI-doo-za-diz">BonsAI d.o.o. za dizajn i implementaciju inteligentnih informacijskih sustava</p>
+        <br><br>
+        <p class="Koturaka-47-10-000">Koturaška 47, 10 000 Zagreb</p>
+        <br><br>
+        <p class="Footer_tekst_style">Company OIB/Tax No.: <span>81255473305</span></p>
+        <br>
+        <p class="Footer_tekst_style">Member of the Board: <span>Slaven Mišak</span></p>
+        <br>
+        <p class="Footer_tekst_style">Amount of share capital: <span>500,000 HRK (paid in full)</span></p>
+        <br><br>
+        <p class="Footer_tekst_style">Bank account: <span>Zagrebacka Banka d.d.</span></p>
+        <br>
+        <p class="Footer_tekst_style">IBAN: <span>HR9223600001102617114</span></p>
+        <br><br>
+
+        <!-- Links -->
+        <div class="info_links_div">
+          <img src="img/github.png" srcset="img/github@2x.png 2x, img/github@3x.png 3x" class="github" onclick="opengit()">
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <img src="img/linkedin.png" srcset="img/linkedin@2x.png 2x, img/linkedin@3x.png 3x" class="linkedin" onclick="openlinkedin()">
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</body>
+
+</html>
