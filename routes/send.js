@@ -12,7 +12,7 @@ var smtpTransport = nodemailer.createTransport({
   host: process.env.SMTP_HOST,
   auth: {
     user: process.env.SMTP_USER,
-    pass: proces.env.SMTP_PASS
+    pass: process.env.SMTP_PASS
   }
 });
 
