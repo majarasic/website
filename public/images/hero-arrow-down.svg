@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="33px" height="20px" viewBox="0 0 33 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>hero-arrow-down</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.25">
+        <g id="hero-arrow-down" fill="#000000">
+            <path d="M18.4986796,18.5003206 C17.3271801,19.6714664 15.4281792,19.6714664 14.2566796,18.5003206 L1.49867961,5.74032056 C0.641413397,4.88198688 0.385453129,3.59183917 0.850107127,2.47124168 C1.31476113,1.35064419 2.40856706,0.620174924 3.62167961,0.62032056 L29.1356796,0.62032056 C30.3492313,0.619770551 31.4435862,1.35039749 31.908331,2.47143286 C32.3730758,3.59246824 32.1166609,4.88308039 31.2586796,5.74132056 L18.4986796,18.5003206 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
