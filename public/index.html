@@ -13,7 +13,7 @@
 				<div class="header__mobile__logo">
 					<a href="#"></a>
 				</div>
-				<a class="header__mobile-button-off"></a>
+				<a class="header__mobile-button-off" data-action="toggle-mobile-menu"></a>
 			</div>
 			<hr class="header__mobile__divider">
 			<div class="header__mobile__menu">
@@ -31,7 +31,7 @@
 						<a href="#products">Products</a>
 						<a href="#contact">Contact</a>
 					</div>
-					<a class="header__mobile-button"></a>
+					<a class="header__mobile-button" data-action="toggle-mobile-menu"></a>
 				</div>
 			</header>
 			<div class="hero__tagline">
@@ -82,7 +82,7 @@
 		</div>
 		<div class="testimonials">
 			<div class="testimonials__carousel">
-				<a class="testimonials__arrow-left"></a>
+				<a class="testimonials__arrow-left" data-action="testimonials-slide" data-direction="prev"></a>
 				<div class="testimonials__wrapper">
 					<div class="testimonial">
 						<p class="testimonial__text">&ldquo;Artificial intelligence would be the ultimate version of Google. The ultimate search engine that would understand everything on the web.&rdquo;</p>
@@ -97,7 +97,7 @@
 						<p class="testimonial__person"><img src="./images/testimonial-starfishmint.png" alt="StarFishMint"> StarFishMint</p>
 					</div>
 				</div>
-				<a class="testimonials__arrow-right"></a>
+				<a class="testimonials__arrow-right" data-action="testimonials-slide" data-direction="next"></a>
 			</div>
 			<div class="testimonials__pagination">
 				<a class="testimonials__pagination__item item--active" data-index="1"></a>
@@ -137,7 +137,7 @@
 		<footer id="contact" class="footer">
 			<div class="footer__cta">
 				<h3>Looking for AI solutions or just want to chat about AI?</h3>
-				<a href="#" class="btn btn--medium btn--purple">Contact Us</a>
+				<a class="btn btn--medium btn--purple" data-action="show-contact-form">Contact Us</a>
 			</div>
 			<hr class="footer__divider">
 			<div class="footer__information">
@@ -160,7 +160,23 @@
 			</div>
 		</footer>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g=" crossorigin="anonymous"></script>
+	<div class="modal-overlay"></div>
+	<div class="contact-modal">
+		<h2>👋 Keep in touch!</h2>
+		<div class="contact-modal__form">
+			<form id="contact-form">
+				<input type="text" id="form-name" placeholder="Name" required>
+				<input type="email" id="form-email" placeholder="Email" required>
+				<input type="text" id="form-subject" placeholder="Subject" required>
+				<textarea id="form-message" placeholder="Message" required></textarea>
+			</form>
+		</div>
+		<div class="contact-modal__actions">
+			<a class="btn btn--small btn--purple" data-action="submit-contact-form">Send</a>
+			<a class="btn btn--small btn--gray" data-action="hide-contact-form">Cancel</a>
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="./javascript/siema.min.js"></script>
 	<script type="text/javascript">
 		var testimonialCarousel = new Siema({
@@ -169,12 +185,9 @@
 			loop: true
 		});
 
-		$(document).on('click', '.testimonials__arrow-left', function () {
-			testimonialCarousel.prev();
-		});
-
-		$(document).on('click', '.testimonials__arrow-right', function () {
-			testimonialCarousel.next();
+		$(document).on('click', 'a[data-action="testimonials-slide"]', function () {
+			if ($(this).data('direction') == 'prev') testimonialCarousel.prev();
+			if ($(this).data('direction') == 'next') testimonialCarousel.next();
 		});
 
 		$(document).on('click', '.testimonials__pagination__item', function () {
@@ -187,13 +200,74 @@
 			paginationItem.addClass('item--active');
 		});
 
-		$(document).on('click', '.header__mobile-button', function () {
-			$('.header__mobile').show();
+		$(document).on('click', 'a[data-action="toggle-mobile-menu"]', function () {
+			$('.header__mobile').toggle();
 		});
 
-		$(document).on('click', '.header__mobile-button-off', function () {
-			$('.header__mobile').hide();
+		$(document).on('click', 'a[data-action="submit-contact-form"]', function () {
+			$('#contact-form').submit();
 		});
+
+		$(document).on('click', 'a[data-action="show-contact-form"]', function () {
+			showContactForm();
+		});
+
+		$(document).on('click', 'a[data-action="hide-contact-form"]', function () {
+			hideContactForm();
+		});
+
+		function showContactForm() {
+			$('.modal-overlay').fadeIn(100);
+			$('.contact-modal').fadeIn(200);
+		}
+
+		function hideContactForm() {
+			$('.contact-modal').fadeOut(100);
+			$('.modal-overlay').fadeOut(200);
+		}
+
+		$('#contact-form').submit(function (event) {
+			var formEmpty = false;
+			var formData = {
+				name: $('#form-name').val(),
+				email: $('#form-email').val(),
+				subject: $('#form-subject').val(),
+				message: $('#form-message').val()
+			}
+
+			for (var key in formData) {
+				if (formData.hasOwnProperty(key)) {
+			        if(formData[key] == "") formEmpty = true;
+			    }
+			}
+
+			if (formEmpty) {
+				alert('Please fill out all the fields.');
+			} else if (!validateEmail(formData.email)) {
+				alert('Please fill out your email address correctly.');
+			}
+
+			$.ajax({
+				url: '/send',
+				data: formData,
+				type: 'POST'
+			}).done(function() {
+				hideContactForm();
+				alert("Thank you, your email has been sent!");
+			}).fail(function(error) {
+				alert("Email couldnt be sent, please try again. Error: " + error);
+			}).always(function() {
+				// Completed.
+			});
+
+			event.preventDefault();
+		});
+
+		function validateEmail(email) {
+			var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			return re.test(email.toLowerCase());
+		}
+
 	</script>
 </body>
 </html>
