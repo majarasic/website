@@ -188,8 +188,19 @@
 		});
 
 		$(document).on('click', 'a[data-action="testimonials-slide"]', function () {
-			if ($(this).data('direction') == 'prev') testimonialCarousel.prev();
-			if ($(this).data('direction') == 'next') testimonialCarousel.next();
+			var paginationItem = parseInt($('.testimonials__pagination__item.item--active').data('index')) - 1;
+			$('.testimonials__pagination__item.item--active').removeClass('item--active');
+
+			if ($(this).data('direction') == 'prev'){
+				testimonialCarousel.prev();
+				$($('.testimonials__pagination__item')[ paginationItem - 1 ]).addClass('item--active');
+			}
+			if ($(this).data('direction') == 'next'){
+				testimonialCarousel.next();
+				if (paginationItem ==  $('.testimonials__pagination__item').length - 1 ) $($('.testimonials__pagination__item')[ 0 ]).addClass('item--active');
+				else $($('.testimonials__pagination__item')[ paginationItem + 1 ]).addClass('item--active');
+			}
+
 		});
 
 		$(document).on('click', '.testimonials__pagination__item', function () {
