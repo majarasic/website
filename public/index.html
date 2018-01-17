@@ -200,12 +200,17 @@
 
 			if ($(this).data('direction') == 'prev'){
 				testimonialCarousel.prev();
-				$($('.testimonials__pagination__item')[ paginationItem - 1 ]).addClass('item--active');
+				if (paginationItem ==  0 ) 
+					$($('.testimonials__pagination__item')[  $('.testimonials__pagination__item').length - 1 ]).addClass('item--active');
+				else
+					$($('.testimonials__pagination__item')[ paginationItem - 1 ]).addClass('item--active');
 			}
 			if ($(this).data('direction') == 'next'){
 				testimonialCarousel.next();
-				if (paginationItem ==  $('.testimonials__pagination__item').length - 1 ) $($('.testimonials__pagination__item')[ 0 ]).addClass('item--active');
-				else $($('.testimonials__pagination__item')[ paginationItem + 1 ]).addClass('item--active');
+				if (paginationItem ==  $('.testimonials__pagination__item').length - 1 )
+					$($('.testimonials__pagination__item')[ 0 ]).addClass('item--active');
+				else
+					$($('.testimonials__pagination__item')[ paginationItem + 1 ]).addClass('item--active');
 			}
 
 		});
