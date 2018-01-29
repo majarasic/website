@@ -4,18 +4,17 @@
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112580401-1"></script>
 	<script>
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
 
-	gtag('config', 'UA-112580401-1');
+		gtag('config', 'UA-112580401-1');
 	</script>
-
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
 	<title>BonsAI d.o.o.</title>
 	<link href="https://fonts.googleapis.com/css?family=Lato:400,400i,700,700i" rel="stylesheet">
 	<link rel="stylesheet" media="screen" type="text/css" href="application.min.css">
-
 	<link rel="apple-touch-icon" sizes="180x180" href="/images/favicon/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/images/favicon/favicon-16x16.png">
@@ -35,7 +34,7 @@
 			<hr class="header__mobile__divider">
 			<div class="header__mobile__menu">
 				<a href="#products" data-action="toggle-mobile-menu">Products</a>
-				<a href="https://blog.bonsai.hr" data-action="toggle-mobile-menu">Blog</a>
+				<a href="https://blog.bonsai.hr">Blog</a>
 				<a href="#contact" data-action="toggle-mobile-menu">Contact</a>
 			</div>
 		</div>
@@ -47,7 +46,7 @@
 				<div class="header__right">
 					<div class="header__menu">
 						<a href="#products">Products</a>
-						<a href="https://blog.bonsai.hr" data-action="toggle-mobile-menu">Blog</a>
+						<a href="https://blog.bonsai.hr">Blog</a>
 						<a href="#contact">Contact</a>
 					</div>
 					<a class="header__mobile-button" data-action="toggle-mobile-menu"></a>
@@ -95,7 +94,6 @@
 				<div class="hero__agents__cta">
 					<h2>Intelligent Chat Agents</h2>
 					<p>Increase customer service efficiency by up to 53%</p>
-					<a href="#contact" class="btn btn--small btn--purple">Find out how</a>
 				</div>
 			</div>
 		</div>
@@ -119,9 +117,9 @@
 				<a class="testimonials__arrow-right" data-action="testimonials-slide" data-direction="next"></a>
 			</div>
 			<div class="testimonials__pagination">
-				<a class="testimonials__pagination__item item--active" data-index="1"></a>
+				<a class="testimonials__pagination__item item--active" data-index="0"></a>
+				<a class="testimonials__pagination__item" data-index="1"></a>
 				<a class="testimonials__pagination__item" data-index="2"></a>
-				<a class="testimonials__pagination__item" data-index="3"></a>
 			</div>
 		</div>
 		<div id="products" class="products">
@@ -131,25 +129,21 @@
 					<img src="./images/chat-bots-icon.svg" alt="">
 					<h3>Chat Bots</h3>
 					<p>Create intelligent agents to adress your customer needs.</p>
-					<a href="#products" class="btn btn--small btn--purple">Coming soon!</a>
 				</div>
 				<div class="product">
 					<img src="./images/verify-signatures-icon.svg" alt="">
 					<h3>Verify Signatures</h3>
 					<p>Automate signature verification process in a company.</p>
-					<a href="#products" class="btn btn--small btn--purple">Coming soon!</a>
 				</div>
 				<div class="product">
 					<img src="./images/identify-people-icon.svg" alt="">
 					<h3>Identify People</h3>
 					<p>Use automated image recognition to identify people in photo and video.</p>
-					<a href="#products" class="btn btn--small btn--purple">Coming soon!</a>
 				</div>
 				<div class="product">
 					<img src="./images/licence-plates-icon.svg" alt="">
 					<h3>Identify License Plates</h3>
 					<p>Read licence plates and integrate that information in your system.</p>
-					<a href="#products" class="btn btn--small btn--purple">Coming soon!</a>
 				</div>
 			</div>
 		</div>
@@ -205,35 +199,39 @@
 			loop: true
 		});
 
+		var testimonialInterval;
+
+		function autoScrollTestimonials() {
+			testimonialCarousel.next();
+
+			$('.testimonials__pagination__item').removeClass('item--active');
+			$('.testimonials__pagination__item[data-index="' + testimonialCarousel.currentSlide + '"]').addClass('item--active');
+		}
+
+		testimonialInterval = setInterval(autoScrollTestimonials, 5000);
+
 		$(document).on('click', 'a[data-action="testimonials-slide"]', function () {
-			var paginationItem = parseInt($('.testimonials__pagination__item.item--active').data('index')) - 1;
-			$('.testimonials__pagination__item.item--active').removeClass('item--active');
+			if ($(this).data('direction') == 'prev') testimonialCarousel.prev();
+			if ($(this).data('direction') == 'next') testimonialCarousel.next();
 
-			if ($(this).data('direction') == 'prev'){
-				testimonialCarousel.prev();
-				if (paginationItem ==  0 ) 
-					$($('.testimonials__pagination__item')[  $('.testimonials__pagination__item').length - 1 ]).addClass('item--active');
-				else
-					$($('.testimonials__pagination__item')[ paginationItem - 1 ]).addClass('item--active');
-			}
-			if ($(this).data('direction') == 'next'){
-				testimonialCarousel.next();
-				if (paginationItem ==  $('.testimonials__pagination__item').length - 1 )
-					$($('.testimonials__pagination__item')[ 0 ]).addClass('item--active');
-				else
-					$($('.testimonials__pagination__item')[ paginationItem + 1 ]).addClass('item--active');
-			}
+			$('.testimonials__pagination__item').removeClass('item--active');
+			$('.testimonials__pagination__item[data-index="' + testimonialCarousel.currentSlide + '"]').addClass('item--active');
 
+			clearInterval(testimonialInterval);
+			testimonialInterval = setInterval(autoScrollTestimonials, 5000);
 		});
 
 		$(document).on('click', '.testimonials__pagination__item', function () {
 			var paginationItem = $(this);
-			var pageIndex = parseInt(paginationItem.data('index')) - 1;
+			var pageIndex = parseInt(paginationItem.data('index'));
 
 			testimonialCarousel.goTo(pageIndex);
 
 			$('.testimonials__pagination__item').removeClass('item--active');
 			paginationItem.addClass('item--active');
+
+			clearInterval(testimonialInterval);
+			testimonialInterval = setInterval(autoScrollTestimonials, 5000);
 		});
 
 		$(document).on('click', 'a[data-action="toggle-mobile-menu"]', function () {

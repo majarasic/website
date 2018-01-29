@@ -437,7 +437,7 @@ body {
 
 .testimonials {
 	width: 820px;
-	margin: 64px auto;
+	margin: 64px auto 32px auto;
 
 	@media #{$device-tablet} {
 		width: 90%;
@@ -546,7 +546,7 @@ body {
 .products {
 	max-width: 1280px;
 	margin: 0 auto;
-	padding: 32px 0 64px 0;
+	padding: 16px 0 64px 0;
 
 	h2 {
 		color: #2b3b49;
