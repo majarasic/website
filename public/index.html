@@ -101,9 +101,9 @@
 				<a class="testimonials__arrow-right" data-action="testimonials-slide" data-direction="next"></a>
 			</div>
 			<div class="testimonials__pagination">
-				<a class="testimonials__pagination__item item--active" data-index="1"></a>
+				<a class="testimonials__pagination__item item--active" data-index="0"></a>
+				<a class="testimonials__pagination__item" data-index="1"></a>
 				<a class="testimonials__pagination__item" data-index="2"></a>
-				<a class="testimonials__pagination__item" data-index="3"></a>
 			</div>
 		</div>
 		<div id="products" class="products">
@@ -186,19 +186,39 @@
 			loop: true
 		});
 
+		var testimonialInterval;
+
+		function autoScrollTestimonials() {
+			testimonialCarousel.next();
+
+			$('.testimonials__pagination__item').removeClass('item--active');
+			$('.testimonials__pagination__item[data-index="' + testimonialCarousel.currentSlide + '"]').addClass('item--active');
+		}
+
+		testimonialInterval = setInterval(autoScrollTestimonials, 5000);
+
 		$(document).on('click', 'a[data-action="testimonials-slide"]', function () {
 			if ($(this).data('direction') == 'prev') testimonialCarousel.prev();
 			if ($(this).data('direction') == 'next') testimonialCarousel.next();
+
+			$('.testimonials__pagination__item').removeClass('item--active');
+			$('.testimonials__pagination__item[data-index="' + testimonialCarousel.currentSlide + '"]').addClass('item--active');
+
+			clearInterval(testimonialInterval);
+			testimonialInterval = setInterval(autoScrollTestimonials, 5000);
 		});
 
 		$(document).on('click', '.testimonials__pagination__item', function () {
 			var paginationItem = $(this);
-			var pageIndex = parseInt(paginationItem.data('index')) - 1;
+			var pageIndex = parseInt(paginationItem.data('index'));
 
 			testimonialCarousel.goTo(pageIndex);
 
 			$('.testimonials__pagination__item').removeClass('item--active');
 			paginationItem.addClass('item--active');
+
+			clearInterval(testimonialInterval);
+			testimonialInterval = setInterval(autoScrollTestimonials, 5000);
 		});
 
 		$(document).on('click', 'a[data-action="toggle-mobile-menu"]', function () {
