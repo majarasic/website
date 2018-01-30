@@ -29,7 +29,7 @@ app.use('/send', send);
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
   err.status = 404;
-  next(err);
+  res.status(404).sendFile(__dirname + '/public/404.html');
 });
 
 // error handlers
@@ -50,10 +50,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.sendfile('./public/404.html', {
-    message: err.message,
-    error: {}
-  });
+  res.send(err.message);
 });
 
 
