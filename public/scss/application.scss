@@ -808,4 +808,12 @@ body {
 
 .swal-button--confirm {
 	background-color: $color-purple;
+
+	&:hover {
+		background: darken($color-purple, 10%);
+	}
+
+	&:active {
+		background: darken($color-purple, 15%);
+	}
 }
