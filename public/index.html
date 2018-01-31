@@ -186,12 +186,13 @@
 			</form>
 		</div>
 		<div class="contact-modal__actions">
-			<a class="btn btn--small btn--purple" data-action="submit-contact-form">Send</a>
-			<a class="btn btn--small btn--gray" data-action="hide-contact-form">Cancel</a>
+			<a class="btn btn--medium btn--purple" data-action="submit-contact-form">Send</a>
+			<a class="btn btn--medium btn--gray" data-action="hide-contact-form">Cancel</a>
 		</div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="./javascript/siema.min.js"></script>
+	<script type="text/javascript" src="./javascript/sweetalert.min.js"></script>
 	<script type="text/javascript">
 		var testimonialCarousel = new Siema({
 			selector: '.testimonials__wrapper',
@@ -276,9 +277,19 @@
 			}
 
 			if (formEmpty) {
-				alert('Please fill out all the fields.');
+				swal({
+					icon: 'error',
+					text: 'Please fill out all the fields.'
+				});
+
+				return false;
 			} else if (!validateEmail(formData.email)) {
-				alert('Please fill out your email address correctly.');
+				swal({
+					icon: 'error',
+					text: 'Please fill out your email address correctly.'
+				});
+
+				return false;
 			}
 
 			$.ajax({
@@ -287,9 +298,16 @@
 				type: 'POST'
 			}).done(function() {
 				hideContactForm();
-				alert("Thank you, your email has been sent!");
+
+				swal({
+					icon: 'success',
+					text: 'Thank you, your email has been sent!'
+				});
 			}).fail(function(error) {
-				alert("Email couldnt be sent, please try again. Error: " + error);
+				swal({
+					icon: 'success',
+					text: "Email couldn't be sent, please try again. Error: " + error
+				});
 			}).always(function() {
 				// Completed.
 			});
