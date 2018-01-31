@@ -86,8 +86,8 @@ body {
 
 	a {
 		display: inline-block;
-		width: 112px;
-		height: 41px;
+		width: 140px;
+		height: 51px;
 		background: transparent url('images/bonsai-logo-color.svg') no-repeat center center;
 		background-size: 100% 100%;
 	}
@@ -141,7 +141,7 @@ body {
 		display: inline-block;
 		width: 140px;
 		height: 51px;
-		background: transparent url('images/bonsai-logo2.svg') no-repeat center center;
+		background: transparent url('images/bonsai-logo-white.svg') no-repeat center center;
 		background-size: 100% 100%;
 	}
 
@@ -736,6 +736,10 @@ body {
 	background: white;
 	text-align: center;
 
+	@media #{$device-phone} {
+		width: 90%;
+	}
+
 	h2 {
 		margin: 0 0 32px 0;
 		padding: 0;
@@ -787,4 +791,29 @@ body {
 		cursor: pointer;
 	}
 
+}
+
+.swal-footer {
+	text-align: center;
+}
+
+.swal-button {
+	border: none;
+	outline: none;
+
+	&:focus {
+		box-shadow: none;
+	}
+}
+
+.swal-button--confirm {
+	background-color: $color-purple;
+
+	&:hover {
+		background: darken($color-purple, 10%);
+	}
+
+	&:active {
+		background: darken($color-purple, 15%);
+	}
 }
