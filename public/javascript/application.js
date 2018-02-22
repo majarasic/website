@@ -109,8 +109,8 @@ $('#contact-form').submit(function (event) {
 		});
 	}).fail(function(error) {
 		swal({
-			icon: 'success',
-			text: "Email couldn't be sent, please try again. Error: " + error
+			icon: 'error',
+			text: "Email couldn't be sent, please try again."
 		});
 	}).always(function() {
 		// Completed.
