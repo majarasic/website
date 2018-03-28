@@ -6,6 +6,8 @@ var testimonialCarousel = new Siema({
 
 var testimonialInterval;
 
+
+
 function autoScrollTestimonials() {
 	testimonialCarousel.next();
 
@@ -53,6 +55,13 @@ $(document).on('click', 'a[data-action="show-contact-form"]', function () {
 
 $(document).on('click', 'a[data-action="hide-contact-form"]', function () {
 	hideContactForm();
+});
+
+$(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
 });
 
 function showContactForm() {
@@ -123,3 +132,16 @@ function validateEmail(email) {
 	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	return re.test(email.toLowerCase());
 }
+
+window.addEventListener('resize', function(event){
+	var sirina = $(window).width();
+	
+	if (sirina < 766) {
+		$(".chatbots__description").insertBefore($(".testimonials"));
+	} else {
+		$(".chatbots__description").insertAfter($(".testimonials"));
+	}	
+});
+
+
+
