@@ -152,7 +152,7 @@ body {
 	justify-content: space-between;
 
 	&--chatbots {
-		margin: 0 auto 10px auto;
+		margin: 0 auto 30px auto;
 	}
 }
 
@@ -230,12 +230,16 @@ body {
 	}
 
 	&--chatbots {
-		padding: 48px 48px 40px 48px;
+		padding: 48px 48px 65px 48px;
 		background: $color-blue;
 		background-image: url('images/hero-bg-pattern.png');
 
 		&::before {
 			background-image: radial-gradient(circle at 50% 100%, rgba(62,79,95,0), #06445d);
+		}
+
+		@media #{$device-xs-phone} {
+			padding: 48px 48px 40px 48px;
 		}
 	}
 }
@@ -900,24 +904,19 @@ body {
 		padding: 60px 30px 0 30px;
 	}
 
-	&__column {
-		width: 50%;
-		float: left;
-
-		@media #{$device-desktop} {
-			width: 100%;
-			float: none;
-		}
+	&__wrapper {
+		width: 100%;
 	}
 }
 	
 .item-chatbot {
 	margin-bottom: 60px;
 	display: inline-block;
-	width: 100%;
+	width: 48%;
 
 	@media #{$device-desktop} {
 		margin-bottom: 30px;
+		width: 100%;
 	}
 	
 	&__description {
@@ -1078,7 +1077,7 @@ body {
 }
 
 .robot-section {
-	padding: 280px 15px 60px 15px;
+	padding: 270px 15px 60px 15px;
 
 	@media #{$device-tablet} {
 		padding: 200px 15px 60px 15px;
@@ -1088,9 +1087,11 @@ body {
 		padding: 60px 15px 0 15px;
 	}
 
+	@media #{$device-xs-phone} {
+		padding: 40px 15px 0 15px;
+	}
+
 	.img-circle {
-		-webkit-backface-visibility: hidden;
-		backface-visibility: hidden;
 		-webkit-transform: scale(1) translateZ(0);
 		transform: scale(1) translateZ(0);
 		-webkit-transition: all .2s ease-in-out;
@@ -1102,8 +1103,6 @@ body {
 		}
 
 		span {
-			-webkit-backface-visibility: hidden;
-			backface-visibility: hidden;
 			-webkit-transform: scale(1) translateZ(0);
 			transform: scale(1) translateZ(0);
 
@@ -1121,7 +1120,7 @@ body {
 	}
 
 	.robot {
-		width: 268px;
+		width: 253px;
 		height: 424px;
 		margin: 0 auto;
 		perspective: 10000px;
@@ -1143,32 +1142,119 @@ body {
 			width: 80px;
 			height: 54px;
 			top: 6px;
-			left: calc(50% - 56px);
+			left: calc(50% - 44px);
 
 			@media #{$device-tablet} {
-				width: 75px;
-				height: 49px;
-				left: calc(50% - 50px);
+				top: 14px;
+				width: 71px;
+				height: 44px;
+				left: calc(50% - 40px);
 			}
 
 			@media #{$device-xs-phone} {
+				top: 9px;
 				width: 56px;
 				height: 39px;
-				left: calc(50% - 37px);
+				left: calc(50% - 30px);
 			}
 		}
 
+		.bubble-tryme {
+			display: block;
+			position: absolute;
+			background: url(images/chatbots/try-me.svg) 50% 50% no-repeat;
+			background-size: 89px auto;
+			width: 91px;
+			height: 72px;
+			right: -16px;
+			top: -2px;
+
+			@media #{$device-tablet} {
+				background: url(images/chatbots/try-me.svg) 50% 50% no-repeat;
+				background-size: 80px auto;
+				right: -15px;
+			}
+
+			@media #{$device-xs-phone} {
+				width: 81px;
+				height: 63;
+				background: url(images/chatbots/try-me.svg) 50% 50% no-repeat;
+				background-size: 73px auto;
+				right: -17px;
+				top: -9px;
+			}
+		}
+
+		.yellow-lamp {
+			fill: #F6E003;
+		}
+
+		.green-lamp {
+			fill: #0BB243;
+		}
+
 		&:hover .key {
-			-webkit-animation: rotateY .7s infinite linear;
-			animation: rotateY .7s infinite linear;
+			-webkit-animation: rotateY 1.3s infinite linear;
+			animation: rotateY 1.3s infinite linear;
+		}
+
+		&:hover .yellow-lamp {
+			-webkit-animation: yellowtogreen 1s steps(2) infinite;
+			animation: yellowtogreen 1s steps(2) infinite;
+		}
+
+		&:hover .green-lamp {
+			-webkit-animation: greentoyellow 3s steps(2) infinite;
+			animation: greentoyellow 3s steps(2) infinite;
 		}
 
 		@-webkit-keyframes rotateY {
-		to { -webkit-transform: rotateY(360deg); }
+			to { -webkit-transform: rotateY(360deg); }
 		}
 		@keyframes rotateY {
-		to { transform: rotateY(360deg); }
+			to { transform: rotateY(360deg); }
 		}
+
+		@-webkit-keyframes yellowtogreen {
+			0%   {
+				fill: #F6E003;
+			}
+
+			100%   {
+				fill: #0BB243;
+			}
+		}
+
+		@keyframes yellowtogreen {
+			0%   {
+				fill: #F6E003;
+			}
+
+			100%   {
+				fill: #0BB243;
+			}
+		}
+
+		@-webkit-keyframes greentoyellow {
+			0%   {
+				fill: #0BB243;
+			}
+
+			100%   {
+				fill: #F6E003;
+			}
+		}
+
+		@keyframes greentoyellow {
+			0%   {
+				fill: #0BB243;
+			}
+
+			100%   {
+				fill: #F6E003;
+			}
+		}
+
 	}
 
 	&__left-bubble-wrapper {
@@ -1222,8 +1308,9 @@ body {
 			}
 
 			&:hover {
-				transform: scale(1.3);
 				-webkit-transform: scale(1.3);
+				transform: scale(1.3);
+				
 			}
 
 		}
@@ -1248,10 +1335,11 @@ body {
 			
 			&--4 {
 				position: absolute;
-				right: 20px;
+				right: 0;
 				bottom: 80px;
 
 				@media #{$device-tablet} {
+					right: 20px;
 					bottom: 150px;
 				}
 			}
@@ -1279,8 +1367,8 @@ body {
 			}
 
 			&:hover {
-				transform: scale(1.3);
 				-webkit-transform: scale(1.3);
+				transform: scale(1.3);
 			}
 
 		}
@@ -1302,3 +1390,87 @@ body {
     clear: both;
 }
 
+@-webkit-keyframes rubberBand {
+	from {
+	  -webkit-transform: scale3d(1, 1, 1);
+	  transform: scale3d(1, 1, 1);
+	}
+  
+	30% {
+	  -webkit-transform: scale3d(1.25, 0.75, 1);
+	  transform: scale3d(1.25, 0.75, 1);
+	}
+  
+	40% {
+	  -webkit-transform: scale3d(0.75, 1.25, 1);
+	  transform: scale3d(0.75, 1.25, 1);
+	}
+  
+	50% {
+	  -webkit-transform: scale3d(1.15, 0.85, 1);
+	  transform: scale3d(1.15, 0.85, 1);
+	}
+  
+	65% {
+	  -webkit-transform: scale3d(0.95, 1.05, 1);
+	  transform: scale3d(0.95, 1.05, 1);
+	}
+  
+	75% {
+	  -webkit-transform: scale3d(1.05, 0.95, 1);
+	  transform: scale3d(1.05, 0.95, 1);
+	}
+  
+	to {
+	  -webkit-transform: scale3d(1, 1, 1);
+	  transform: scale3d(1, 1, 1);
+	}
+  }
+  
+  @keyframes rubberBand {
+	from {
+	  -webkit-transform: scale3d(1, 1, 1);
+	  transform: scale3d(1, 1, 1);
+	}
+  
+	30% {
+	  -webkit-transform: scale3d(1.25, 0.75, 1);
+	  transform: scale3d(1.25, 0.75, 1);
+	}
+  
+	40% {
+	  -webkit-transform: scale3d(0.75, 1.25, 1);
+	  transform: scale3d(0.75, 1.25, 1);
+	}
+  
+	50% {
+	  -webkit-transform: scale3d(1.15, 0.85, 1);
+	  transform: scale3d(1.15, 0.85, 1);
+	}
+  
+	65% {
+	  -webkit-transform: scale3d(0.95, 1.05, 1);
+	  transform: scale3d(0.95, 1.05, 1);
+	}
+  
+	75% {
+	  -webkit-transform: scale3d(1.05, 0.95, 1);
+	  transform: scale3d(1.05, 0.95, 1);
+	}
+  
+	to {
+	  -webkit-transform: scale3d(1, 1, 1);
+	  transform: scale3d(1, 1, 1);
+	}
+  }
+
+  .rubberBand {
+	-webkit-animation-name: rubberBand;
+	animation-name: rubberBand;
+	-webkit-animation-delay: .7s;
+	animation-delay: .7s;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+  }
