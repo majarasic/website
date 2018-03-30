@@ -144,27 +144,45 @@ window.addEventListener('resize', function(event){
 });
 
 $(".robot-section .img-circle--1").click(function(){
-    $(".item-chatbot .img-circle--1").addClass("rubberBand");
+	$(".item-chatbot .img-circle--1").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--1").removeClass("rubberBand");
+	}, 3000);
 });
 
 $(".robot-section .img-circle--2").click(function(){
-    $(".item-chatbot .img-circle--2").addClass("rubberBand");
+	$(".item-chatbot .img-circle--2").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--2").removeClass("rubberBand");
+	}, 3000);
 });
 
 $(".robot-section .img-circle--3").click(function(){
-    $(".item-chatbot .img-circle--3").addClass("rubberBand");
+	$(".item-chatbot .img-circle--3").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--3").removeClass("rubberBand");
+	}, 3000);
 });
 
 $(".robot-section .img-circle--4").click(function(){
-    $(".item-chatbot .img-circle--4").addClass("rubberBand");
+	$(".item-chatbot .img-circle--4").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--4").removeClass("rubberBand");
+	}, 3000);
 });
 
 $(".robot-section .img-circle--5").click(function(){
-    $(".item-chatbot .img-circle--5").addClass("rubberBand");
+	$(".item-chatbot .img-circle--5").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--5").removeClass("rubberBand");
+	}, 3000);
 });
 
 $(".robot-section .img-circle--6").click(function(){
-    $(".item-chatbot .img-circle--6").addClass("rubberBand");
+	$(".item-chatbot .img-circle--6").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--6").removeClass("rubberBand");
+	}, 3000);
 });
 
 
