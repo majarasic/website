@@ -24,9 +24,10 @@ app.post('/', (req, res) => {
 
   var mailOption = {
     to : "info@bonsai.hr",
+    from: '"BonsAI" <noreply@bonsai.hr>',
     subject : "Email from bonsai.hr",
     html: email_body
-  }
+  };
 
   smtpTransport.sendMail(mailOption, (error, response) => {
     if(error){
