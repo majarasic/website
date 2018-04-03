@@ -6,6 +6,8 @@ var testimonialCarousel = new Siema({
 
 var testimonialInterval;
 
+
+
 function autoScrollTestimonials() {
 	testimonialCarousel.next();
 
@@ -53,6 +55,13 @@ $(document).on('click', 'a[data-action="show-contact-form"]', function () {
 
 $(document).on('click', 'a[data-action="hide-contact-form"]', function () {
 	hideContactForm();
+});
+
+$(document).on('click', 'a[href^="#"]', function (event) {
+    event.preventDefault();
+    $('html, body').animate({
+        scrollTop: $($.attr(this, 'href')).offset().top
+    }, 500);
 });
 
 function showContactForm() {
@@ -123,3 +132,58 @@ function validateEmail(email) {
 	var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 	return re.test(email.toLowerCase());
 }
+
+window.addEventListener('resize', function(event){
+	var sirina = $(window).width();
+	
+	if (sirina < 766) {
+		$(".chatbots__description").insertBefore($(".testimonials"));
+	} else {
+		$(".chatbots__description").insertAfter($(".testimonials"));
+	}	
+});
+
+$(".robot-section .img-circle--1").click(function(){
+	$(".item-chatbot .img-circle--1").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--1").removeClass("rubberBand");
+	}, 3000);
+});
+
+$(".robot-section .img-circle--2").click(function(){
+	$(".item-chatbot .img-circle--2").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--2").removeClass("rubberBand");
+	}, 3000);
+});
+
+$(".robot-section .img-circle--3").click(function(){
+	$(".item-chatbot .img-circle--3").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--3").removeClass("rubberBand");
+	}, 3000);
+});
+
+$(".robot-section .img-circle--4").click(function(){
+	$(".item-chatbot .img-circle--4").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--4").removeClass("rubberBand");
+	}, 3000);
+});
+
+$(".robot-section .img-circle--5").click(function(){
+	$(".item-chatbot .img-circle--5").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--5").removeClass("rubberBand");
+	}, 3000);
+});
+
+$(".robot-section .img-circle--6").click(function(){
+	$(".item-chatbot .img-circle--6").addClass("rubberBand");
+	setTimeout(function() {
+		$(".item-chatbot .img-circle--6").removeClass("rubberBand");
+	}, 3000);
+});
+
+
+
