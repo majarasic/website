@@ -1,6 +1,6 @@
 website
 ======
-Code for the BonsAI website, found at http://bonsai.hr.
+Code for the BonsAI website, found at http://bonsai.tech.
 
 Company profile
 ------

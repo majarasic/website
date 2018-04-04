@@ -23,9 +23,9 @@ app.post('/', (req, res) => {
 
 
   var mailOption = {
-    to : "info@bonsai.hr",
-    from: '"BonsAI" <noreply@bonsai.hr>',
-    subject : "Email from bonsai.hr",
+    to : "info@bonsai.tech",
+    from: '"BonsAI" <noreply@bonsai.tech>',
+    subject : "Email from bonsai.tech",
     html: email_body
   };
 
