@@ -25,7 +25,7 @@ $(document).on('click', 'a[data-action="testimonials-slide"]', function () {
 	$('.testimonials__pagination__item[data-index="' + testimonialCarousel.currentSlide + '"]').addClass('item--active');
 
 	clearInterval(testimonialInterval);
-	testimonialInterval = setInterval(autoScrollTestimonials, 5000);
+	testimonialInterval = setInterval(autoScrollTestimonials, 10000);
 });
 
 $(document).on('click', '.testimonials__pagination__item', function () {
@@ -38,7 +38,7 @@ $(document).on('click', '.testimonials__pagination__item', function () {
 	paginationItem.addClass('item--active');
 
 	clearInterval(testimonialInterval);
-	testimonialInterval = setInterval(autoScrollTestimonials, 5000);
+	testimonialInterval = setInterval(autoScrollTestimonials, 10000);
 });
 
 $(document).on('click', 'a[data-action="toggle-mobile-menu"]', function () {
