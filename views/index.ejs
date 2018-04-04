@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-112580401-1"></script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
+		function gtag() { dataLayer.push(arguments); }
 		gtag('js', new Date());
 
 		gtag('config', 'UA-112580401-1');
@@ -22,6 +23,7 @@
 	<link rel="mask-icon" href="/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 	<meta name="theme-color" content="#ffffff">
 </head>
+
 <body>
 	<div class="app">
 		<div class="header__mobile">
@@ -34,7 +36,7 @@
 			<hr class="header__mobile__divider">
 			<div class="header__mobile__menu">
 				<a href="#products" data-action="toggle-mobile-menu">Products</a>
-				<a href="https://blog.bonsai.hr">Blog</a>
+				<a href="https://blog.bonsai.tech">Blog</a>
 				<a href="#contact" data-action="toggle-mobile-menu">Contact</a>
 			</div>
 		</div>
@@ -46,8 +48,9 @@
 				<div class="header__right">
 					<div class="header__menu">
 						<a href="#products">Products</a>
-						<a href="https://blog.bonsai.hr">Blog</a>
-						<a href="#contact">Contact</a>
+						<a href="https://blog.bonsai.tech">Blog</a>
+						<!-- <a href="#contact">Contact</a> -->
+						<a href="#contact" onclick="showContactForm()">Contact</a>
 					</div>
 					<a class="header__mobile-button" data-action="toggle-mobile-menu"></a>
 				</div>
@@ -102,16 +105,24 @@
 				<a class="testimonials__arrow-left" data-action="testimonials-slide" data-direction="prev"></a>
 				<div class="testimonials__wrapper">
 					<div class="testimonial">
-						<p class="testimonial__text">&ldquo;Artificial intelligence would be the ultimate version of Google. The ultimate search engine that would understand everything on the web.&rdquo;</p>
-						<p class="testimonial__person"><img src="./images/testimonial-larry-page.png" alt="Larry Page"> Larry Page</p>
+						<p class="testimonial__text">&ldquo;
+							<a class="testimonial_link" href="https://span.eu/en/customer-experience/">MIA</a>,
+							<a class="testimonial_link" href="https://span.eu/karijere/zasto-span/">Daria</a> &amp;
+							<a class="testimonial_link" href="https://span.eu/cybersecurity/">Ben</a>! These 3 chatbots made our landing pages smarter and helped us generate more leads. Now, people can talk to
+							us 24/7. In the future, we hope to have more AI kids with the BonsAI team.&rdquo;</p>
+						<p class="testimonial__person">
+							<img src="./images/testimonial-dino.png" alt="Gartner"> Dino Oreški, Digital Marketing Manager, Span</p>
 					</div>
 					<div class="testimonial">
-						<p class="testimonial__text">&ldquo;Chatbots will power 85% of all customer service interactions by the year 2020.&rdquo;</p>
-						<p class="testimonial__person"><img src="./images/testimonial-gartner.png" alt="Gartner"> Gartner</p>
+						<p class="testimonial__text">&ldquo;Artificial intelligence would be the ultimate version of Google. The ultimate search engine that would understand
+							everything on the web.&rdquo;</p>
+						<p class="testimonial__person">
+							<img src="./images/testimonial-larry-page.png" alt="Larry Page"> Larry Page</p>
 					</div>
 					<div class="testimonial">
 						<p class="testimonial__text">&ldquo;The average person will have more conversations with bots than with their spouse.&rdquo;</p>
-						<p class="testimonial__person"><img src="./images/testimonial-starfishmint.png" alt="StarFishMint"> StarFishMint</p>
+						<p class="testimonial__person">
+							<img src="./images/testimonial-starfishmint.png" alt="StarFishMint"> StarFishMint</p>
 					</div>
 				</div>
 				<a class="testimonials__arrow-right" data-action="testimonials-slide" data-direction="next"></a>
@@ -126,24 +137,28 @@
 			<h2>Our Products</h2>
 			<div class="products__list">
 				<div class="product">
-					<img src="./images/chat-bots-icon.svg" alt="">
-					<h3>Chat Bots</h3>
+					<img src="./images/chat-bots-icon-green.svg" alt="">
+					<h3>Chatbots</h3>
 					<p>Create intelligent agents to adress your customer needs.</p>
+					<a href="/chatbots" class="btn btn--small btn--purple">Find out more</a>
 				</div>
 				<div class="product">
 					<img src="./images/verify-signatures-icon.svg" alt="">
 					<h3>Verify Signatures</h3>
 					<p>Automate signature verification process in a company.</p>
+					<a href="#" class="btn btn--small btn--gray">Coming soon</a>
 				</div>
 				<div class="product">
 					<img src="./images/identify-people-icon.svg" alt="">
 					<h3>Identify People</h3>
 					<p>Use automated image recognition to identify people in photo and video.</p>
+					<a href="#" class="btn btn--small btn--gray">Coming soon</a>
 				</div>
 				<div class="product">
 					<img src="./images/licence-plates-icon.svg" alt="">
 					<h3>Identify License Plates</h3>
 					<p>Read licence plates and integrate that information in your system.</p>
+					<a href="#" class="btn btn--small btn--gray">Coming soon</a>
 				</div>
 			</div>
 		</div>
@@ -156,20 +171,32 @@
 			<div class="footer__information">
 				<div class="footer__block" style="margin-bottom: 40px;">
 					<h4>BonsAI d.o.o. za dizajn i implementaciju inteligentnih informacijskih sustava</h4>
-					<p style="color: #fff;"><a href="https://www.google.com/maps/place/Kotura%C5%A1ka+ul.+47,+10000,+Zagreb/@45.8026988,15.9650577,16.25z/data=!4m5!3m4!1s0x4765d6f1a8a6e39b:0x24b88305bcba39bd!8m2!3d45.8029028!4d15.9688703?hl=en" target="_blank" class="icon icon--google-maps" title="Location"></a> Koturaška 47, 10 000 Zagreb</p>
+					<p style="color: #fff;">
+						<a href="https://www.google.com/maps/place/Kotura%C5%A1ka+ul.+47,+10000,+Zagreb/@45.8026988,15.9650577,16.25z/data=!4m5!3m4!1s0x4765d6f1a8a6e39b:0x24b88305bcba39bd!8m2!3d45.8029028!4d15.9688703?hl=en"
+						 target="_blank" class="icon icon--google-maps" title="Location"></a> Koturaška 47, 10 000 Zagreb</p>
 				</div>
 				<div class="footer__block">
-					<p><strong>Company OIB/Tax No.:</strong> 81255473305</p>
-					<p><strong>Members of the Board:</strong> Nikola Dujmović, Slaven Mišak</p>
-					<p><strong>Amount of share capital:</strong> 500,000 HRK (paid in full)</p>
+					<p>
+						<strong>Company OIB/Tax No.:</strong> HR81255473305</p>
+					<p>
+						<strong>Members of the Board:</strong> Nikola Dujmović, Slaven Mišak</p>
+					<p>
+						<strong>Amount of share capital:</strong> 500,000 HRK (paid in full)</p>
 				</div>
 				<div class="footer__block">
-					<p><strong>Bank account:</strong> Zagrebačka banka d.d.</p>
-					<p><strong>IBAN:</strong> HR9223600001102617114</p>
+					<p>
+						<strong>Bank account:</strong> Zagrebačka banka d.d.</p>
+					<p>
+						<strong>IBAN:</strong> HR9223600001102617114</p>
 				</div>
 				<div class="footer__links">
 					<a href="https://github.com/bonsaihr" target="_blank" class="icon icon--github" title="Github"></a>
 					<a href="https://www.linkedin.com/company/bonsai-d.o.o./" target="_blank" class="icon icon--linkedin" title="LinkedIn"></a>
+				</div>
+				<div class="footer__span">
+					<a href="https://span.eu/" target="_blank">
+						<img src="/images/Span-logo-1-RGB-negativ.png" alt="span.eu">
+					</a>
 				</div>
 			</div>
 		</footer>
@@ -190,9 +217,11 @@
 			<a class="btn btn--medium btn--gray" data-action="hide-contact-form">Cancel</a>
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	 crossorigin="anonymous"></script>
 	<script type="text/javascript" src="./javascript/siema.min.js"></script>
 	<script type="text/javascript" src="./javascript/sweetalert.min.js"></script>
 	<script type="text/javascript" src="./javascript/application.js"></script>
 </body>
+
 </html>

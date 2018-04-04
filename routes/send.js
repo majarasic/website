@@ -18,19 +18,21 @@ var smtpTransport = nodemailer.createTransport({
 
 /* Ruta za primanje forme i slanje emailaa */
 app.post('/', (req, res) => {
-  var email_body = "Sender name: " + req.body.name + "\nSender email: " + req.body.email;
-  email_body += "\nEmail subject: " + req.body.subject + "\nEmail message:\n" + req.body.message;
+  var email_body = "<b>Sender name:</b> " + req.body.name + "<br><b>Sender email: </b>" + req.body.email;
+  email_body += "<br><b>Email subject:</b> " + req.body.subject + "<br><b>Email message:</b><br>" + req.body.message;
+
 
   var mailOption = {
-    to : "info@bonsai.hr",
-    subject : "Email from bonsai.hr",
-    text: email_body
-  }
+    to : "info@bonsai.tech",
+    from: '"BonsAI" <noreply@bonsai.tech>',
+    subject : "Email from bonsai.tech",
+    html: email_body
+  };
 
   smtpTransport.sendMail(mailOption, (error, response) => {
     if(error){
       console.log(error);
-      res.send("error while sending");
+      res.status(500).send("error while sending");
     }
     else{
       console.log("Message sent!");
