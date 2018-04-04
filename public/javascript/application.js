@@ -15,7 +15,7 @@ function autoScrollTestimonials() {
 	$('.testimonials__pagination__item[data-index="' + testimonialCarousel.currentSlide + '"]').addClass('item--active');
 }
 
-testimonialInterval = setInterval(autoScrollTestimonials, 5000);
+testimonialInterval = setInterval(autoScrollTestimonials, 10000);
 
 $(document).on('click', 'a[data-action="testimonials-slide"]', function () {
 	if ($(this).data('direction') == 'prev') testimonialCarousel.prev();

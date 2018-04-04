@@ -1426,3 +1426,11 @@ body {
   animation-fill-mode: both; }
 
   .testimonial_link{color:#8067c3}
+
+  .footer__span {
+    text-align: center;
+    padding:10px;
+  }
+  .footer__span img {
+    width: 150px;
+  }
