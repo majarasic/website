@@ -1313,6 +1313,11 @@ body {
 				
 			}
 
+			&:focus,
+			&:active {
+				outline: 0;
+			}
+
 		}
 	}
 
