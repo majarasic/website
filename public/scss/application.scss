@@ -238,8 +238,8 @@ body {
 			background-image: radial-gradient(circle at 50% 100%, rgba(62,79,95,0), #06445d);
 		}
 
-		@media #{$device-xs-phone} {
-			padding: 48px 48px 40px 48px;
+		@media #{$device-phone} {
+			padding: 24px 24px 48px 24px;
 		}
 	}
 }
@@ -1110,6 +1110,11 @@ body {
 				font-size: 16px;
 				padding: 0 21px;
 			}
+		}
+
+		&:active,
+		&:focus {
+			outline: none;
 		}
 	}
 

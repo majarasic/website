@@ -543,9 +543,9 @@ body {
     background-image: url("images/hero-bg-pattern.png"); }
     .hero--chatbots::before {
       background-image: radial-gradient(circle at 50% 100%, rgba(62, 79, 95, 0), #06445d); }
-    @media only screen and (max-width: 375px) {
+    @media only screen and (max-width: 620px) {
       .hero--chatbots {
-        padding: 48px 48px 40px 48px; } }
+        padding: 24px 24px 48px 24px; } }
 
 .hero__tagline {
   position: relative; }
@@ -1175,6 +1175,8 @@ body {
         .robot-section .img-circle span {
           font-size: 16px;
           padding: 0 21px; } }
+    .robot-section .img-circle:active, .robot-section .img-circle:focus {
+      outline: none; }
   .robot-section .container {
     max-width: 930px;
     margin: 0 auto;
@@ -1424,13 +1426,3 @@ body {
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both; }
-
-  .testimonial_link{color:#8067c3}
-
-  .footer__span {
-    text-align: center;
-    padding:10px;
-  }
-  .footer__span img {
-    width: 150px;
-  }
