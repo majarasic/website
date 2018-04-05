@@ -545,7 +545,7 @@ body {
       background-image: radial-gradient(circle at 50% 100%, rgba(62, 79, 95, 0), #06445d); }
     @media only screen and (max-width: 620px) {
       .hero--chatbots {
-        padding: 24px 24px 48px 24px; } }
+        padding: 24px 24px 40px 24px; } }
 
 .hero__tagline {
   position: relative; }
